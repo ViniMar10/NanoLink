@@ -22,3 +22,105 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+
+# Ignorados específicos do url-shortner-frontend
+# Compiled output -- front
+url-shortner-frontend/dist
+url-shortner-frontend/tmp
+url-shortner-frontend/out-tsc
+url-shortner-frontend/bazel-out
+
+# Node modules and dependency files -- front
+url-shortner-frontend/node_modules
+url-shortner-frontend/package-lock.json
+url-shortner-frontend/yarn.lock
+
+# Logs -- front
+url-shortner-frontend/npm-debug.log*
+url-shortner-frontend/yarn-debug.log*
+url-shortner-frontend/yarn-error.log*
+
+# IDEs and editors -- front
+url-shortner-frontend/.idea/
+url-shortner-frontend/.project
+url-shortner-frontend/.classpath
+url-shortner-frontend/.c9/
+url-shortner-frontend/*.launch
+url-shortner-frontend/.settings/
+url-shortner-frontend/*.sublime-workspace
+
+# Visual Studio Code -- front
+url-shortner-frontend/.vscode/*
+!url-shortner-frontend/.vscode/settings.json
+!url-shortner-frontend/.vscode/tasks.json
+!url-shortner-frontend/.vscode/launch.json
+!url-shortner-frontend/.vscode/extensions.json
+url-shortner-frontend/.history/*
+
+# Miscellaneous -- front
+url-shortner-frontend/.angular/cache
+url-shortner-frontend/.sass-cache/
+url-shortner-frontend/connect.lock
+url-shortner-frontend/coverage
+url-shortner-frontend/libpeerconnection.log
+url-shortner-frontend/testem.log
+url-shortner-frontend/typings
+
+
+# System files -- front
+url-shortner-frontend/.DS_Store
+url-shortner-frontend/Thumbs.db
+
+url-shortner-frontend/e2e/test-output/
+url-shortner-frontend/.angular/
+
+# Angular CLI and build artefacts -- front
+url-shortner-frontend/.angular-cli.json
+url-shortner-frontend/.ng/
+
+# TypeScript cache -- front
+url-shortner-frontend/*.tsbuildinfo
+
+# Ignorados específicos do url-shortner-backend
+
+# Arquivo auxiliar
+url-shortner-backend/HELP.md
+
+# Diretórios de build e empacotamento
+url-shortner-backend/target/
+url-shortner-backend/.mvn/wrapper/maven-wrapper.jar
+
+# Exceções para builds dentro de src
+!url-shortner-backend/**/src/main/**/target/
+!url-shortner-backend/**/src/test/**/target/
+
+### STS (Spring Tool Suite) ###
+url-shortner-backend/.apt_generated
+url-shortner-backend/.classpath
+url-shortner-backend/.factorypath
+url-shortner-backend/.project
+url-shortner-backend/.settings
+url-shortner-backend/.springBeans
+url-shortner-backend/.sts4-cache
+
+### IntelliJ IDEA ###
+url-shortner-backend/.idea
+url-shortner-backend/*.iws
+url-shortner-backend/*.iml
+url-shortner-backend/*.ipr
+
+### NetBeans ###
+url-shortner-backend/nbproject/private/
+url-shortner-backend/nbbuild/
+url-shortner-backend/dist/
+url-shortner-backend/nbdist/
+url-shortner-backend/.nb-gradle/
+url-shortner-backend/build/
+
+# Exceções para builds dentro de src
+!url-shortner-backend/**/src/main/**/build/
+!url-shortner-backend/**/src/test/**/build/
+
+### Visual Studio Code ###
+url-shortner-backend/.vscode/
