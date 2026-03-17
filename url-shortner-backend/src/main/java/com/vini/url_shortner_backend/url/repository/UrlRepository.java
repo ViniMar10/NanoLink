@@ -1,6 +1,6 @@
-package com.vini.url_shortner_backend.repository;
+package com.vini.url_shortner_backend.url.repository;
 
-import com.vini.url_shortner_backend.entity.Url;
+import com.vini.url_shortner_backend.url.model.entity.Url;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

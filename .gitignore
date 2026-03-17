@@ -43,8 +43,6 @@ yarn-error.log*
 
 # IDEs and editors -- front
 .idea/
-.project
-.classpath
 .c9/
 *.launch
 .settings/
@@ -73,7 +71,7 @@ typings
 Thumbs.db
 
 e2e/test-output/
-/.angular/
+.angular/
 
 # Angular CLI and build artefacts -- front
 .angular-cli.json
