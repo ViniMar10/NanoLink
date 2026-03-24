@@ -2,8 +2,7 @@ package com.vini.url_shortner_backend.url.model.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.SQLRestriction;
 import org.hibernate.validator.constraints.URL;
@@ -18,6 +17,8 @@ import java.time.LocalDateTime;
     }
 )
 @Data
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class Url {
     @Id
@@ -29,7 +30,7 @@ public class Url {
     @Column(name = "label")
     private String label;
 
-    @Size(min = 5, max = 10, message = "Short code must be max 10 characters")
+    @Size(min = 6, max = 10, message = "Short code must be min 6 and max 10 characters long")
     @Column(name = "short_code", nullable = false, unique = true, length = 10)
     private String shortCode;
 
@@ -38,6 +39,7 @@ public class Url {
     private String longUrl;
 
     @Column(name = "qr_code_enabled", nullable = false)
+    @Builder.Default
     private boolean qrCodeEnabled = false;
 
     @CreationTimestamp
@@ -45,13 +47,16 @@ public class Url {
     private LocalDateTime createdAt;
 
     @Column(name = "clicks_short_code", nullable = false)
+    @Builder.Default
     private long clicksShortCode = 0;
 
     @Column(name = "clicks_qr_code", nullable = false)
+    @Builder.Default
     private long clicksQrCode = 0;
 
-    @Column(name = "is_private", nullable = false)
-    private boolean isPrivate = false;
+    @Column(name = "private_url", nullable = false)
+    @Builder.Default
+    private boolean privateUrl = false;
 
     @Column(name = "expires_at")
     private LocalDateTime expiresAt;
