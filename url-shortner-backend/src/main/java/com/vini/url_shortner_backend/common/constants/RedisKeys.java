@@ -6,8 +6,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class RedisKeys {
     public static final int URL_TTL_HOURS = 24;
+    public static final int PUBLIC_URL_GENERATION_HISTORY_TTL_HOURS = 24;
+
     public static final String URL_PREFIX = "url-shortener-backend::urls::";
-    public static final String PUBLIC_URL_GENERATION_HISTORY = "url-shortener-backend::public-url-generation-history::";
+    public static final String PUBLIC_URL_GENERATION_HISTORY_PREFIX = "url-shortener-backend::public-url-generation-history::";
     public static final String STATS_CLICKS_SHORT_PREFIX = "url-shortener-backend::stats::clicks::short::";
     public static final String STATS_CLICKS_QR_PREFIX = "url-shortener-backend::stats::clicks::qr::";
 
@@ -16,7 +18,7 @@ public final class RedisKeys {
     }
 
     public static String publicUrlGenerationHistoryKey(String longUrl) {
-        return PUBLIC_URL_GENERATION_HISTORY + longUrl;
+        return PUBLIC_URL_GENERATION_HISTORY_PREFIX + longUrl;
     }
 
     public static String clicksShortKey(String shortCode) {
