@@ -1,5 +1,6 @@
 package com.vini.url_shortner_backend.url.service;
 
+import com.vini.url_shortner_backend.url.exceptions.UrlNotFoundException;
 import com.vini.url_shortner_backend.url.infrastructure.mappers.UrlMapper;
 import com.vini.url_shortner_backend.url.infrastructure.persistence.UrlPersistence;
 import com.vini.url_shortner_backend.url.model.dto.PublicShortUrlGenerateRequestDto;
@@ -20,6 +21,20 @@ public class UrlService {
     public UrlGenerationResponseDto generateShortUrlForNonRegisteredUsers(PublicShortUrlGenerateRequestDto requestDto) {
         return urlCacheService.findPublicUrlGenerationResponseByLongUrl(requestDto.longUrl())
                 .orElseGet(() -> resolveAndCachePublicUrl(requestDto.longUrl()));
+    }
+
+    public String findLongUrlForRedirect(String shortCode) {
+        return urlCacheService.findUrlByShortCode(shortCode)
+                .orElseGet(() -> findAndCacheUrl(shortCode))
+                .getLongUrl();
+    }
+
+    private Url findAndCacheUrl(String shortCode) {
+        Url url = urlRepository.findByShortCode(shortCode)
+                .orElseThrow(() -> new UrlNotFoundException("There is no url with shortCode " + shortCode));
+
+        urlCacheService.cacheUrl(url);
+        return url;
     }
 
     private UrlGenerationResponseDto resolveAndCachePublicUrl(String longUrl) {
